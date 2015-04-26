@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset SYSTEM "../schemas/db_model.dtd" >
+
+<!--
+	Setup some movies and talents 
+ -->
+
+<dataset>
+	<!-- initialize awesome talents -->
+	<talent talent_id="1"	first_name="Bruce"	last_name="Willis"		/>
+	<talent talent_id="2"	first_name="John"	last_name="McTiernan"	/>
+	
+	<!-- setup kickass movies -->
+	<movie movie_id="1" title="Die Hard" category="Action"/>	
+	<plotsummary movie_id="1" summary="A kickass plot"/>
+	<director talent_id="2" movie_id="1"/>
+	<movierole talent_id="1" movie_id="1"/>
+	
+	
+	<movie movie_id="2" title="Die Hard 3" category="Action"/>	
+	<plotsummary movie_id="2" summary="A kickass plot"/>
+	<director talent_id="2" movie_id="2"/>
+	
+
+</dataset>

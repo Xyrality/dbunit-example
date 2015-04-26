@@ -1,0 +1,225 @@
+<!ELEMENT dataset (
+   (creditcard|
+    customer|
+    db_migrations|
+    director|
+    erattachment|
+    erattachmentdata|
+    ertag|
+    fee|
+    feetype|
+    movie|
+    movierole|
+    movietag|
+    plotsummary|
+    rental|
+    rentalsuser|
+    rentalterms|
+    review|
+    studio|
+    talent|
+    talentphoto|
+    unit|
+    video|
+    voting)*)>
+
+<!ELEMENT creditcard EMPTY>
+<!ATTLIST creditcard
+    authorization_date CDATA #REQUIRED
+    authorization_num CDATA #REQUIRED
+    card_number CDATA #REQUIRED
+    climit CDATA #REQUIRED
+    customer_id CDATA #REQUIRED
+    expiration_date CDATA #REQUIRED
+>
+
+<!ELEMENT customer EMPTY>
+<!ATTLIST customer
+    city CDATA #REQUIRED
+    customer_id CDATA #REQUIRED
+    first_name CDATA #REQUIRED
+    last_name CDATA #REQUIRED
+    member_since CDATA #IMPLIED
+    phone CDATA #IMPLIED
+    state CDATA #IMPLIED
+    street_address CDATA #IMPLIED
+    zip CDATA #IMPLIED
+>
+
+<!ELEMENT db_migrations EMPTY>
+<!ATTLIST db_migrations
+    lockowner CDATA #IMPLIED
+    modelname CDATA #REQUIRED
+    updatelock CDATA #REQUIRED
+    version CDATA #REQUIRED
+>
+
+<!ELEMENT director EMPTY>
+<!ATTLIST director
+    movie_id CDATA #REQUIRED
+    talent_id CDATA #REQUIRED
+>
+
+<!ELEMENT erattachment EMPTY>
+<!ATTLIST erattachment
+    attachmentdataid CDATA #IMPLIED
+    configurationname CDATA #IMPLIED
+    filesystempath CDATA #IMPLIED
+    height CDATA #IMPLIED
+    id CDATA #REQUIRED
+    mimetype CDATA #REQUIRED
+    originalfilename CDATA #REQUIRED
+    ownerid CDATA #IMPLIED
+    parentid CDATA #IMPLIED
+    proxied CDATA #REQUIRED
+    s3path CDATA #IMPLIED
+    size CDATA #REQUIRED
+    smalldata CDATA #IMPLIED
+    storagetype CDATA #IMPLIED
+    thumbnail CDATA #IMPLIED
+    webpath CDATA #REQUIRED
+    width CDATA #IMPLIED
+    available CDATA #REQUIRED
+    creationdate CDATA #REQUIRED
+    cfpath CDATA #IMPLIED
+>
+
+<!ELEMENT erattachmentdata EMPTY>
+<!ATTLIST erattachmentdata
+    data CDATA #IMPLIED
+    id CDATA #REQUIRED
+>
+
+<!ELEMENT ertag EMPTY>
+<!ATTLIST ertag
+    id CDATA #REQUIRED
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT fee EMPTY>
+<!ATTLIST fee
+    amount CDATA #REQUIRED
+    date_paid CDATA #IMPLIED
+    fee_id CDATA #REQUIRED
+    fee_type_id CDATA #REQUIRED
+    rental_id CDATA #REQUIRED
+>
+
+<!ELEMENT feetype EMPTY>
+<!ATTLIST feetype
+    enabled CDATA #REQUIRED
+    fee_type CDATA #REQUIRED
+    fee_type_id CDATA #REQUIRED
+    order_by CDATA #REQUIRED
+>
+
+<!ELEMENT movie EMPTY>
+<!ATTLIST movie
+    category CDATA #IMPLIED
+    date_released CDATA #IMPLIED
+    movie_id CDATA #REQUIRED
+    poster_name CDATA #IMPLIED
+    rated CDATA #IMPLIED
+    revenue CDATA #IMPLIED
+    studio_id CDATA #IMPLIED
+    title CDATA #REQUIRED
+    trailer_name CDATA #IMPLIED
+    poster_attachmentid CDATA #IMPLIED
+>
+
+<!ELEMENT movierole EMPTY>
+<!ATTLIST movierole
+    movie_id CDATA #REQUIRED
+    role_name CDATA #IMPLIED
+    talent_id CDATA #REQUIRED
+>
+
+<!ELEMENT movietag EMPTY>
+<!ATTLIST movietag
+    item_movie_id CDATA #REQUIRED
+    tag_id CDATA #REQUIRED
+>
+
+<!ELEMENT plotsummary EMPTY>
+<!ATTLIST plotsummary
+    movie_id CDATA #REQUIRED
+    summary CDATA #IMPLIED
+>
+
+<!ELEMENT rental EMPTY>
+<!ATTLIST rental
+    customer_id CDATA #REQUIRED
+    date_out CDATA #REQUIRED
+    date_returned CDATA #IMPLIED
+    rental_id CDATA #REQUIRED
+    unit_id CDATA #REQUIRED
+>
+
+<!ELEMENT rentalsuser EMPTY>
+<!ATTLIST rentalsuser
+    access_level CDATA #REQUIRED
+    customer_id CDATA #IMPLIED
+    login CDATA #REQUIRED
+    password CDATA #REQUIRED
+    user_id CDATA #REQUIRED
+>
+
+<!ELEMENT rentalterms EMPTY>
+<!ATTLIST rentalterms
+    check_out_length CDATA #REQUIRED
+    cost CDATA #REQUIRED
+    deposit_amount CDATA #REQUIRED
+    name CDATA #REQUIRED
+    rental_terms_id CDATA #REQUIRED
+>
+
+<!ELEMENT review EMPTY>
+<!ATTLIST review
+    movie_id CDATA #REQUIRED
+    review CDATA #IMPLIED
+    reviewer CDATA #IMPLIED
+    review_id CDATA #REQUIRED
+>
+
+<!ELEMENT studio EMPTY>
+<!ATTLIST studio
+    budget CDATA #REQUIRED
+    name CDATA #REQUIRED
+    studio_id CDATA #REQUIRED
+>
+
+<!ELEMENT talent EMPTY>
+<!ATTLIST talent
+    first_name CDATA #REQUIRED
+    last_name CDATA #REQUIRED
+    talent_id CDATA #REQUIRED
+>
+
+<!ELEMENT talentphoto EMPTY>
+<!ATTLIST talentphoto
+    photo CDATA #IMPLIED
+    talent_id CDATA #REQUIRED
+>
+
+<!ELEMENT unit EMPTY>
+<!ATTLIST unit
+    date_acquired CDATA #REQUIRED
+    notes CDATA #IMPLIED
+    unit_id CDATA #REQUIRED
+    video_id CDATA #REQUIRED
+>
+
+<!ELEMENT video EMPTY>
+<!ATTLIST video
+    movie_id CDATA #REQUIRED
+    rental_terms_id CDATA #REQUIRED
+    video_id CDATA #REQUIRED
+>
+
+<!ELEMENT voting EMPTY>
+<!ATTLIST voting
+    movie_id CDATA #REQUIRED
+    number_of_votes CDATA #IMPLIED
+    running_average CDATA #IMPLIED
+>
+

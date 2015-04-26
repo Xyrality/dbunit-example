@@ -1,0 +1,2 @@
+stripped off ERTaggable
+removed loading data from 0 migration

@@ -1,0 +1,30 @@
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath 'com.xyrality.gradle:gradle-wonder-plugin:1.0.0'
+	}
+}
+
+version = '1.2.3'
+
+apply plugin: 'woframework'
+
+wonder {
+	wonderVersion = '6.1.2'
+	webobjectsVersion = '5.4.3'
+	principalClass = 'webobjectsexamples.businesslogic.ERMoviesLogic'
+}
+
+dependencies {
+	compile group: 'com.webobjects', name: 'JavaXML', version: wonder.webobjectsVersion
+	compile group: 'wonder.businesslogic', name: 'ERAttachment', version: wonder.wonderVersion
+}
+
+// fix classpath for test cases
+test.doFirst {
+	sourceSets.test.runtimeClasspath = files(project.configurations.compile.find { it.name.startsWith("ERExtensions") }.path) + sourceSets.test.runtimeClasspath
+}

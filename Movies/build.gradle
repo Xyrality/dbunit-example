@@ -1,0 +1,49 @@
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath 'com.xyrality.gradle:gradle-wonder-plugin:1.0.0'
+	}
+}
+
+version = '1.2.3'
+
+apply plugin: 'woapplication'
+
+wonder {
+	wonderVersion = '6.1.2'
+	webobjectsVersion = '5.4.3'
+	applicationClass = 'er.movies.Application'
+
+	deploymentServers = ['localhost']
+	deploymentSSHUser = 'wouser'
+	deploymentPath = '/home/wouser/apps'
+	deploymentSSHPort = 2222
+	deploymentMonitorBounceTasks = ['localhost':'Movies']
+	deploymentSSHIgnoreHostKey = true
+}
+
+dependencies {
+	compile group: 'wonder.core',			name: 'WOOgnl',			version: wonder.wonderVersion
+	compile group: 'com.webobjects',		name: 'JavaXML',		version: wonder.webobjectsVersion
+	compile group: 'wonder.misc',			name: 'ERChronic',		version: wonder.wonderVersion
+	compile group: 'wonder.ajax',			name: 'Ajax',			version: wonder.wonderVersion
+	compile group: 'wonder.businesslogic',	name: 'ERAttachment',	version: wonder.wonderVersion
+	compile project(':ERMoviesLogic') 
+	compile group: 'wonder.eof',			name: 'ERRest',			version: wonder.wonderVersion
+	compile group: 'wonder.plugins',		name: 'H2PlugIn',		version: wonder.wonderVersion
+	compile group: 'com.h2database',		name: 'h2',				version:'1.4.186'
+	
+	testCompile group: 'org.dbunit',		name:'dbunit',			version:'2.5.0'
+	
+}
+
+
+// fix classpath for test cases
+test.doFirst {
+	sourceSets.test.runtimeClasspath = files(project.configurations.compile.find { it.name.startsWith("ERExtensions") }.path) + sourceSets.test.runtimeClasspath
+}
+
