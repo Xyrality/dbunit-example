@@ -3,10 +3,8 @@
 This is a multi project gradle port of the Movies and ERMoviesLogic demo projects, that demonstarates how you can get WO to work with dbunit.
 
 ## Important quirks
- 
 
-### Reorder Classpath for gradle to beable to execute the testing
-
+### Reorder Classpath for gradle to be able to execute tests
 ```groovy
 test.doFirst {
 	sourceSets.test.runtimeClasspath = files(
