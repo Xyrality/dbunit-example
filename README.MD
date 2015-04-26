@@ -33,6 +33,7 @@ public abstract class YourDBTestCase extends DBTestCase
 		Application.reorderClasspath(Application.class);
 	}
 }
+```
 
 ### Initialize NSBundle manually in your Application class
 
