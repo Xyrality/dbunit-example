@@ -32,7 +32,28 @@ public abstract class YourDBTestCase extends DBTestCase
 		// - put the application class back to the top
 		Application.reorderClasspath(Application.class);
 	}
-} 
+}
+
+### Initialize NSBundle manually in your Application class
+
+```java
+public class Application extends ERXApplication
+{
+	private static final String	FATAL_LOAD_SETTINGS	= "Could not initialize application - TERMINATING!";
+
+	public static void main(String[] argv)
+	{
+
+		NSBundleFactory.registerBundleFactory(new NSStandardProjectBundle.Factory());
+		if (isDevelopmentModeSafe())
+		{
+			reorderClasspath(Application.class);
+		}
+
+		ERXApplication.main(argv, Application.class);
+	}
+}
+```
 
 
  
